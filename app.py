@@ -1,8 +1,12 @@
-from flask import Flask, session, url_for, redirect, render_template, request, abort, flash
+from flask import Flask
+from flask_sqlalchemy import SQLAlchemy
 
-app=Flask(__name__) #creating an instance of web app
-@app.route("/")
-def home():
-    return render_template("index.html")
-if __name__=="__main__":
-    app.run()
+app=Flask(__name__)
+app.config['SQLALCHEMY_DATABASE_URI']='sqlite:///db.sqlite3'
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS']=False
+db = SQLAlchemy(app)
+
+class User(db.Model):
+    id = db.Column(db.Integer,primary_key='TRUE')
+    name = db.Column(db.String(50))
+    tag = db.Column(db.String(50))
