@@ -19,7 +19,7 @@
    <p>To insert data into table</p>
    <li>flask shell</li>
    <li>from app import db,User</li>
-   <li>Enter entry into table and assign ity to a key</li>
+   <li>Enter entry into table and assign it to a key</li>
    <li>db.session.add(key name)</li>
    <li>db.session.commit</li>
     
